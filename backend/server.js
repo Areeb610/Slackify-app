@@ -1,9 +1,12 @@
+require('dotenv').config();
 // importing dummy data module
 const {chats} = require("./data/dummyData");
 const express = require("express");
 // creating instance of express
 const app = express(); 
-app.listen(5000,console.log("Server started at port 5000"));
+// creating port from env
+const port = process.env.PORT || 5003;
+app.listen( port , console.log(`Server started at port locallhost:${port}`) );
 
 //testing api
 app.get("/" , (req , res) => {
