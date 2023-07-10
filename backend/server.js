@@ -13,7 +13,6 @@ connectDb();
 
 app.use(express.json());
 
-
 app.use("/api/user", userroutes);
 
 app.listen(5000, () => {
