@@ -2,8 +2,7 @@ import React from 'react'
 
 const Chatspage = () => {
   return (
-    <div>Chatspage</div>
+    <div>ChatSpage</div>
   )
 }
-
 export default Chatspage
