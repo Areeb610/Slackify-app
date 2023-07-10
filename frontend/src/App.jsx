@@ -1,12 +1,15 @@
 import './App.css'
+import {Route, BrowserRouter} from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import Chatspage from './pages/Chatspage';
 
 function App() {
   return (
-    <>
-      <h1>App</h1>
-
-    </>
+    <BrowserRouter>
+      <Route path="/" component={Homepage} exact />
+      <Route path="/chats" component={Chatspage} />
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;
