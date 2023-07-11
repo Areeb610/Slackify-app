@@ -12,7 +12,13 @@ dotenv.config()
 // connectDb();
 // connectpost();
 
-client.connect();
+client.connect((err) => {
+    if (err) {
+        console.log('Failed to connect to PostgreSQL server:', err);
+        return;
+    }
+    console.log("PostgreSql is connected");
+});
 
 redisclient.on('error', err => console.log('Redis Client Error', err));
 await redisclient.connect();
