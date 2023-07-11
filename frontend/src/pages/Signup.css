@@ -93,7 +93,6 @@ body {
     color: red;
     font-size: 14px;
     margin-top: 1px;
-    margin-bottom: -30px;
   }
   
   .login-container .right-box {
@@ -132,6 +131,7 @@ body {
     text-decoration: underline;
     cursor: pointer;
   }
+  
   /* Responsive Adjustments */
   @media screen and (max-width: 768px) {
     .login-container {

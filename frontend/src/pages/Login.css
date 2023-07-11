@@ -72,12 +72,13 @@ body {
 
 .login-input[type="email"],
 .login-input[type="password"] {
-  margin-top: 20px;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border: none;
   outline: none;
   font-size: 20px;
+  text-align: center;
+
 }
 
 .button-login {
@@ -115,7 +116,7 @@ body {
 
 .login-password-toggle {
   position: absolute;
-  top: 50%;
+  top:  30%;
   right: 10px;
   transform: translateY(-50%);
   color: #999;
