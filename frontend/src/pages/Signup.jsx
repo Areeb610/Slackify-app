@@ -15,7 +15,6 @@ const Signup = () => {
   function handleSignup(e) {
     e.preventDefault();
 
-    // Password validation regex pattern
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
     if (!passwordPattern.test(password)) {
@@ -31,7 +30,6 @@ const Signup = () => {
     }
 
     // Password and confirm password match, proceed with signup logic
-    console.log('Signup button clicked!');
   }
 
   function handlePasswordChange(e) {
@@ -83,7 +81,6 @@ const Signup = () => {
               onClick={togglePasswordVisibility}
             />
           </div>
-          {passwordError && <p className="error">{passwordError}</p>}
 
           <label htmlFor="confirm-password">Confirm Password</label>
           <div className="password-field">
@@ -101,6 +98,7 @@ const Signup = () => {
               onClick={toggleConfirmPasswordVisibility}
             />
           </div>
+          {passwordError && <p className="error">{passwordError}</p>}
           {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}
           <input type="submit" value="Create Account" />
           <p>Already have an account? <a>Login</a></p>
