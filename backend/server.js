@@ -13,6 +13,11 @@ app.get("/" , (req , res) => {
     res.send("API running");
 });
 
+// testing data list
+app.get("/api/chats" , (req , res) => {
+    res.send(chats);
+});
+
 //testing api end point with params :id
 app.get("/api/chats/:id" , (req , res) => {
     // extracting single chat data from object
