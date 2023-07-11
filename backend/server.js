@@ -2,15 +2,22 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDb from './database/mongo.js'
 import userroutes from "./routes/uroutes.js"
-
-
+import client from "./database/postgresql.js"
+import redisclient from "./redis/redis.js";
 const app = express();
 
 
 dotenv.config()
 
-connectDb();
+// connectDb();
+// connectpost();
 
+client.connect();
+
+redisclient.on('error', err => console.log('Redis Client Error', err));
+await redisclient.connect();
+
+// client.end;
 app.use(express.json());
 
 app.use("/api/user", userroutes);
