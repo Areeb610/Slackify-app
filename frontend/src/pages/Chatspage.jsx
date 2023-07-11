@@ -4,9 +4,6 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import PhoneIcon from "@mui/icons-material/Phone";
 import InfoIcon from "@mui/icons-material/Info";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
-import 'typeface-lato'
-import { Button } from "bootstrap";
 const Chatspage = () => {
   return (
     <>
@@ -51,22 +48,42 @@ const Chatspage = () => {
               placeholder="Message"
             />
             <div className="message-icons">
-              <button className="slack-message-textarea__editor-button">Speed</button>
-              <button className="slack-message-textarea__editor-button">Bold</button>
-              <button className="slack-message-textarea__editor-button">Italic</button>
-              <button className="slack-message-textarea__editor-button">Strikethrough</button>
-              <button className="slack-message-textarea__editor-button">Attachments</button>
-              <button className="slack-message-textarea__editor-button">Number_bullets</button>
-              <button className="slack-message-textarea__editor-button">Bullets</button>
-              <button className="slack-message-textarea__editor-button">Font_Size</button>
-              <button className="slack-message-textarea__editor-button">Mention</button>
-              <button className="slack-message-textarea__editor-button">Emoji</button>
-              <button className="slack-message-textarea__editor-button">Send </button>
-
-               </div> 
-           </div>
+              <button className="slack-message-textarea__editor-button">
+                Speed
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Bold
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Italic
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Strikethrough
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Attachments
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Number_bullets
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Bullets
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Font_Size
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Mention
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Emoji
+              </button>
+              <button className="slack-message-textarea__editor-button">
+                Send{" "}
+              </button>
+            </div>
+          </div>
         </div>
-        
       </div>
     </>
   );
