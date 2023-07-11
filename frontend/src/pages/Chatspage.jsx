@@ -1,7 +1,49 @@
-import React from 'react'
-const Chatspage = () => {  
+import "./Chatspage.css";
+import CircleIcon from "@mui/icons-material/Circle";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import PhoneIcon from "@mui/icons-material/Phone";
+import InfoIcon from "@mui/icons-material/Info";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+const Chatspage = () => {
   return (
-    <div>ChatSpage</div>
-  )
-}
-export default Chatspage
+    <>
+      <div className="chatpage__top">
+        <div className="chat__left">
+          <CircleIcon className="green" />
+          <span>Faizan</span>
+          <StarBorderIcon />
+        </div>
+        <div className="chat__right">
+          <PhoneIcon />
+          <InfoIcon />
+        </div>
+      </div>
+      <div className="chats__div">
+        <div className="timestamp">
+          <div className="left__hr"></div>
+          <div className="timetext">
+            Monday, March 1st <KeyboardArrowDownIcon />
+          </div>
+          <div className="right__hr"></div>
+        </div>
+        <div className="chat">
+          <div className="img__div">
+            <img src="" alt="profile-pic" />
+          </div>
+          <div className="right__text">
+            <div className="sender__name">
+              Salman <span>6:49 PM</span>
+            </div>
+            <div className="msg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+              deleniti provident dolorem eaque tempora voluptatem officiis in
+              temporibus, libero optio debitis? Repudiandae ex mollitia in alias
+              quae. In, magnam eaque.
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+export default Chatspage;
