@@ -2,6 +2,8 @@ import {hashPassword, comparePassword} from "../helper/helper.js"
 import userModel from "../models/user.js"
 import client from "../database/postgresql.js"
 import redisclient from "../redis/redis.js"
+import JWT from "jsonwebtoken";
+
 
 export const registercontroller = async (req, res) => {
     try {
@@ -69,21 +71,15 @@ export const logincontroller = async (req, res) => {
 
         const temp = JSON.stringify(ruser)
 
-        // await redisclient.set("User", temp, (error, result) => {
+
+        // const uid = (user.rows[0].id).toString();
+        // await redisclient.set(uid, temp, (error, result) => {
         //     if (error) {
         //         console.error("Error storing user in Redis:", error);
         //     } else {
         //         console.log("User stored in Redis:", result);
         //     }
         // });
-        const uid = (user.rows[0].id).toString();
-        await redisclient.set(uid, temp, (error, result) => {
-            if (error) {
-                console.error("Error storing user in Redis:", error);
-            } else {
-                console.log("User stored in Redis:", result);
-            }
-        });
 
         // const temp_redis_data = await redisclient.get(uid, (error, result) => {
         //     if (error) {
@@ -92,8 +88,13 @@ export const logincontroller = async (req, res) => {
         //         console.log("User stored in Redis:", result);
         //     }
         // });
+
         // const redis_data = JSON.parse(temp_redis_data)
         // console.log(redis_data)
+
+        const token = await JWT.sign({
+            _id: user.rows[0].id
+        }, process.env.JWT_SECRET, {expiresIn: "1d"});
 
         return res.status(200).send({
             success: true,
@@ -103,8 +104,8 @@ export const logincontroller = async (req, res) => {
                 id: user.rows[0].id,
                 name: user.rows[0].name,
                 email: user.rows[0].email
-            }
-
+            },
+            token
         });
 
     } catch (err) {

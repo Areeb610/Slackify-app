@@ -12,7 +12,7 @@ dotenv.config()
 // connectDb();
 
 
-client.connect((err) => {
+await client.connect((err) => {
     if (err) {
         console.log('Failed to connect to PostgreSQL server:', err);
         return;
