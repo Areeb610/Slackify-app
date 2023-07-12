@@ -32,18 +32,20 @@ function Signup() {
     }
     // Calling api
     try {
+      const apiUrl = "http://localhost:5000/api/user/register";
       const config ={
         headers:{
         "Content-type":"application/json"
       },
       };
       const {data} = await axios.post(
-        "https://api.escuelajs.co/api/v1/auth/login",
-        {name, password},
+        apiUrl,
+        {name,email, password},
         config
       );
       JSON.stringify(data);
       console.log(data);
+      alert('Registration successfull')
       
     } catch (error) {
       
