@@ -47,7 +47,7 @@
 }
 
 .timetext {
-  font-weight: bold;
+  font-weight: 600;
   display: flex;
   width: 30%;
   align-items: center;

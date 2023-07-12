@@ -26,7 +26,8 @@ const Chatspage = () => {
           </div>
           <div className="right__hr"></div>
         </div>
-        <div className="chat">
+        {/* Map the chats from database here */}
+        {/* <div className="chat">
           <div className="img__div">
             <img src="" alt="profile-pic" className="profile_pic" />
           </div>
@@ -41,7 +42,7 @@ const Chatspage = () => {
               quae. In, magnam eaque.
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="message-textarea">
           <textarea
             className="message-textarea__input"
