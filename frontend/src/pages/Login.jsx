@@ -16,7 +16,12 @@ function Login() {
   const [password, setPassword] = useState();
 
   const submitHandler = ()=>{
-    console.log('click working')
+    // checking null fields
+    if(!name || !email || !password){
+      alert('Please fill all fields');
+      return;
+    }
+    console.log('click working');
   }
   return (
     <Box
