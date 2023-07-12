@@ -31,7 +31,7 @@ export const registercontroller = async (req, res) => {
                 return res.status(500).send({success: false, message: "Error in Registration", err});
             }
         });
-        return res.status(201).send({success: true, message: "User Register Successfully"})
+        return res.status(201).send({success: true, message: "User Registered Successfully"})
 
     } catch (err) {
         console.log(err);

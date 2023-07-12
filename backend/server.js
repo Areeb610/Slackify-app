@@ -20,8 +20,18 @@ client.connect((err) => {
     console.log("PostgreSql is connected");
 });
 
-redisclient.on('error', err => console.log('Redis Client Error', err));
-await redisclient.connect();
+// const user = await client.query('CREATE TABLE people_in_workspace (workspace_id INT REFERENCES workspace(id) , added_people INT REFERENCES person (id) , PRIMARY KEY(workspace_id,added_people) )', (err, result) => {
+//     if (!err) {
+//         console.log(result);
+//     } else {
+//         console.log(err)
+//     }
+// });
+
+
+// redisclient.on('error', err => console.log('Redis Client Error', err));
+// await redisclient.connect();
+
 
 // client.end;
 app.use(express.json());
