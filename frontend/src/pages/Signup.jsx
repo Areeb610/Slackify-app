@@ -1,47 +1,55 @@
-import React from 'react';
 import { useState } from 'react';
 import './Signup.css';
 import logo from '../assets/signup_bg.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-function Signup() {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
-  
-  // Handling form input
-  const submitHandler = async ()=>{
-    // checking null fields
-    if(!name || !email || !password || !confirmPassword){
-      alert('Please fill all fields');
-      return;
-    }
-    if(password!==confirmPassword){
-      alert('Password did not match');
-      return;
-    }
-    // Calling api
-    try {
-      const config ={
-        headers:{
-        "Content-type":"application/json"
-      },
-      };
-      const {data} = await axios.post(
-        "https://api.escuelajs.co/api/v1/auth/login",
-        {name, password},
-        config
+const Signup = () => {
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  function handleSignup(e) {
+    e.preventDefault();
+
+    // Password validation regex pattern
+    const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+    if (!passwordPattern.test(password)) {
+      setPasswordError(
+        'Password does not meet requirements.'
       );
-      JSON.stringify(data);
-      console.log(data);
-      
-    } catch (error) {
-      
+      return;
     }
 
+    if (password !== confirmPassword) {
+      setConfirmPasswordError('Passwords do not match.');
+      return;
+    }
+
+    // Password and confirm password match, proceed with signup logic
+    console.log('Signup button clicked!');
   }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+    setPasswordError('');
+  }
+
+  function handleConfirmPasswordChange(e) {
+    setConfirmPassword(e.target.value);
+    setConfirmPasswordError('');
+  }
+
+  function togglePasswordVisibility() {
+    setShowPassword(!showPassword);
+  }
+
+  function toggleConfirmPasswordVisibility() {
+    setShowConfirmPassword(!showConfirmPassword);
+  }
+
   return (
     <div className="login-container">
       <div className="left-box">
@@ -67,11 +75,7 @@ function Signup() {
               value={password}
               onChange={handlePasswordChange}
             />
-            <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              className="password-toggle"
-              onClick={togglePasswordVisibility}
-            />
+            
           </div>
           {passwordError && <p className="error">{passwordError}</p>}
 
@@ -85,11 +89,7 @@ function Signup() {
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
-            <FontAwesomeIcon
-              icon={showConfirmPassword ? faEyeSlash : faEye}
-              className="password-toggle"
-              onClick={toggleConfirmPasswordVisibility}
-            />
+            
           </div>
           {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}
           <input type="submit" value="Create Account" />
@@ -98,7 +98,6 @@ function Signup() {
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
-
