@@ -31,8 +31,8 @@ const Chatspage = () => {
             <img src="" alt="profile-pic" className="profile_pic" />
           </div>
           <div className="right__text">
-            <div className="sender__name">
-              Salman <span>6:49 PM</span>
+            <div className="sender">
+              Salman &nbsp;<span>6:49 PM</span>
             </div>
             <div className="msg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
@@ -41,47 +41,47 @@ const Chatspage = () => {
               quae. In, magnam eaque.
             </div>
           </div>
-          <div className="message-textarea">
-            <textarea
-              className="message-textarea__input"
-              rows={4}
-              placeholder="Message"
-            />
-            <div className="message-icons">
-              <button className="slack-message-textarea__editor-button">
-                Speed
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Bold
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Italic
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Strikethrough
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Attachments
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Number_bullets
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Bullets
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Font_Size
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Mention
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Emoji
-              </button>
-              <button className="slack-message-textarea__editor-button">
-                Send{" "}
-              </button>
-            </div>
+        </div>
+        <div className="message-textarea">
+          <textarea
+            className="message-textarea__input"
+            rows={4}
+            placeholder="Message"
+          />
+          <div className="message-icons">
+            <button className="slack-message-textarea__editor-button">
+              Speed
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Bold
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Italic
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Strikethrough
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Attachments
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Number_bullets
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Bullets
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Font_Size
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Mention
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Emoji
+            </button>
+            <button className="slack-message-textarea__editor-button">
+              Send{" "}
+            </button>
           </div>
         </div>
       </div>
