@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import './Signup.css';
 import logo from '../assets/signup_bg.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Signup = () => {
   const [password, setPassword] = useState('');
@@ -77,11 +75,7 @@ const Signup = () => {
               value={password}
               onChange={handlePasswordChange}
             />
-            <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              className="password-toggle"
-              onClick={togglePasswordVisibility}
-            />
+            
           </div>
           {passwordError && <p className="error">{passwordError}</p>}
 
@@ -95,11 +89,7 @@ const Signup = () => {
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
-            <FontAwesomeIcon
-              icon={showConfirmPassword ? faEyeSlash : faEye}
-              className="password-toggle"
-              onClick={toggleConfirmPasswordVisibility}
-            />
+            
           </div>
           {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}
           <input type="submit" value="Create Account" />
