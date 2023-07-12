@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import {
   Box,
   Container,
@@ -10,6 +11,13 @@ import {
 } from '@mui/material';
 
 function Login() {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const submitHandler = ()=>{
+    console.log('click working')
+  }
   return (
     <Box
       minHeight="100vh"
@@ -30,14 +38,26 @@ function Login() {
                 label="Username"
                 variant="outlined"
                 fullWidth
+                onChange={(e)=>setName(e.target.value)}
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Email"
+                type='email'
+                variant="outlined"
+                fullWidth
+                onChange={(e)=>setEmail(e.target.value)}
+              />
+            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 label="Password"
                 type="password"
                 variant="outlined"
                 fullWidth
+                onChange={(e)=>setPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -45,6 +65,7 @@ function Login() {
                 variant="contained"
                 color="primary"
                 fullWidth
+                onClick={submitHandler}
               >
                 Sign In
               </Button>

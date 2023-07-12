@@ -3,9 +3,9 @@
     margin: -8px;
     min-height: 100vh;
     min-width: 100vh;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
     background: rgb(7,30,144);
     background: linear-gradient(90deg, rgba(7,30,144,1) 24%, rgba(226,70,252,1) 100%);
+    /* background-image: url('./assets/signup_bg.png');
+    background-size: cover; */
+    
 }
