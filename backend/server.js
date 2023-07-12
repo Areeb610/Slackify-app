@@ -10,7 +10,7 @@ const app = express();
 dotenv.config()
 
 // connectDb();
-// connectpost();
+
 
 client.connect((err) => {
     if (err) {
@@ -20,7 +20,7 @@ client.connect((err) => {
     console.log("PostgreSql is connected");
 });
 
-// const user = await client.query('CREATE TABLE people_in_workspace (workspace_id INT REFERENCES workspace(id) , added_people INT REFERENCES person (id) , PRIMARY KEY(workspace_id,added_people) )', (err, result) => {
+// const user = await client.query('CREATE TABLE invitation (workspace_id INT REFERENCES workspace(id) NOT NULL , sender_id INT REFERENCES person (id) NOT NULL , receiver_id INT REFERENCES person (id) NOT NULL , status BOOLEAN NOT NULL , PRIMARY KEY (workspace_id, receiver_id) )', (err, result) => {
 //     if (!err) {
 //         console.log(result);
 //     } else {
