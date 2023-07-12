@@ -1,16 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
-import {
-  Box,
-  Container,
-  Paper,
-  Grid,
-  Typography,
-  TextField,
-  Button,
-  Link, 
-} from '@mui/material';
+import './Signup.css';
+import logo from '../assets/signup_bg.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function Signup() {
   const [name, setName] = useState();
@@ -50,56 +43,60 @@ function Signup() {
 
   }
   return (
-    <Box minHeight="80vh" display="flex" alignItems="center" justifyContent="center">
-      <Container maxWidth="xs">
-        <Paper elevation={3} sx={{ padding: 4 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Typography variant="h5" align="center">
-                Sign Up
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField label="Name" name='name' variant="outlined" fullWidth 
-                onChange={(e)=>setName(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField label="Email" type="email" variant="outlined" fullWidth 
-                onChange={(e)=>setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField label="Password" name='password' type="password" variant="outlined" fullWidth 
-                onChange={(e)=>setPassword(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Confirm Password"
-                name='confirmPassword'
-                type="password"
-                variant="outlined"
-                fullWidth
-                onChange={(e)=>setConfirmPassword(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12} textAlign="center">
-              <Button variant="contained" color="primary" fullWidth
-              onClick={submitHandler}
-              >
-                Sign Up
-              </Button>
-              <Typography variant="body1" marginTop='10px' >
-                <Link href="/login" color="primary">
-                   Already have an account? Login in
-                </Link>
-              </Typography>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Container>
-    </Box>
+    <div className="login-container">
+      <div className="left-box">
+        <h1 className="temp">Sign Up</h1>
+        <img src={logo} alt="logo" className="logo" />
+      </div>
+      <div className="right-box">
+        <h2>Create Account</h2>
+        <form onSubmit={handleSignup}>
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Username" />
+
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email" />
+
+          <label htmlFor="password">Password</label>
+          <div className="password-field">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <FontAwesomeIcon
+              icon={showPassword ? faEyeSlash : faEye}
+              className="password-toggle"
+              onClick={togglePasswordVisibility}
+            />
+          </div>
+          {passwordError && <p className="error">{passwordError}</p>}
+
+          <label htmlFor="confirm-password">Confirm Password</label>
+          <div className="password-field">
+            <input
+              type={showConfirmPassword ? 'text' : 'password'}
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+            />
+            <FontAwesomeIcon
+              icon={showConfirmPassword ? faEyeSlash : faEye}
+              className="password-toggle"
+              onClick={toggleConfirmPasswordVisibility}
+            />
+          </div>
+          {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}
+          <input type="submit" value="Create Account" />
+          <p>Already have an account? <a>Login</a></p>
+        </form>
+      </div>
+    </div>
   );
 }
 
