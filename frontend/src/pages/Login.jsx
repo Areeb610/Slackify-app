@@ -1,55 +1,59 @@
-import './Login.css';
-import logo from '../assets/login_bg.png';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import {
+  Box,
+  Container,
+  Paper,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+} from '@mui/material';
 
-const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log("Login button clicked!");
-    // Write login code here
-  };
-
-  const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
-
+function Login() {
   return (
-    <div className="container-1">
-      <div className="login-left-box">
-        <h1 className='temp'>Slackify</h1>
-        <img src={logo} alt='logo' className='login-logo' />
-      </div>
-      <div className="login-right-box">
-        <h2>Sign In</h2>
-        <form className="login-form">
-          <label htmlFor="email" className="login-label">Email</label>
-          <input type="email" id="email" name="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} className="login-input" />
-          <label htmlFor="password" className="login-label">Password</label>
-          <div className="login-password-field">
-            <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="login-input" />
-            <span className="login-password-toggle" onClick={handleShowPassword}>
-              {showPassword ? (
-                <FontAwesomeIcon icon={faEyeSlash} />
-              ) : (
-                <FontAwesomeIcon icon={faEye} />
-              )}
-            </span>
-          </div>
-          <input type="submit" value="Sign In" onClick={handleLogin} className='button-login' />
-          <a href="/forgot-password" className="login-link">Forgot Password?</a>
-          <p className="login-paragraph">
-            Dont have an account? <a className="login-link">Sign Up</a>
-          </p>
-        </form>
-      </div>
-    </div>
+    <Box
+      minHeight="100vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Container maxWidth="xs">
+        <Paper elevation={3} sx={{ padding: 4 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography variant="h5" align="center">
+                Login
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Username"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Password"
+                type="password"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+              >
+                Sign In
+              </Button>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Container>
+    </Box>
   );
-};
+}
 
 export default Login;
