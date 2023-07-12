@@ -4,13 +4,15 @@ import connectDb from './database/mongo.js'
 import userroutes from "./routes/uroutes.js"
 import client from "./database/postgresql.js"
 import redisclient from "./redis/redis.js";
+import cors from "cors"
+
 const app = express();
 
 
 dotenv.config()
 
 // connectDb();
-
+app.use(cors())
 
 await client.connect((err) => {
     if (err) {
