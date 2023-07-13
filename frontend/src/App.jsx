@@ -4,6 +4,7 @@ import Homepage from './pages/Homepage';
 import Chatspage from './pages/Chatspage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Company from './pages/Company'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" component={Homepage} exact />
       <Route path="/chats" component={Chatspage} />
       <Route path="/login" component={Login} />
+      <Route path="/workspace" component={Company} />
     </BrowserRouter>
     </div>
   )
