@@ -1,6 +1,6 @@
 import './App.css'
 import {Route, BrowserRouter} from 'react-router-dom';
-import Homepage from './pages/Homepage';
+import Homepage from './pages/Homepage/Homepage';
 import Chatspage from './pages/Chatspage';
 import Login from './components/Login';
 import Company from './pages/Company'
