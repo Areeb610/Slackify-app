@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 import {
   Box,
   Container,
@@ -7,27 +9,48 @@ import {
   Typography,
   TextField,
   Button,
-} from "@mui/material";
+} from '@mui/material';
 
 function Login() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const submitHandler = () => {
+  const submitHandler = ()=>{
     // checking null fields
-    if (!name || !email || !password) {
-      alert("Please fill all fields");
+    if(!name || !email || !password){
+      alert('Please fill all fields');
       return;
     }
-    console.log("click working");
-  };
+    console.log('click working');
+  }
   return (
-    <Box
-      minHeight="100vh"
+    <div className="login">
+     <Box
+      minHeight="5vh"
       display="flex"
       alignItems="center"
       justifyContent="center"
+    >
+      <Typography fontFamily="'Inter', sans-serif;" marginTop="40px" variant="h2" align="center" color='white' >
+        Slackify
+      </Typography>
+    </Box>
+    <Box
+      minHeight="5vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Typography fontFamily="'Inter', sans-serif;" marginTop="40px" variant="h6" align="center" color='white' >
+        Continue with your login info.
+      </Typography>
+    </Box>
+    <Box
+      minHeight="100vh"
+      display="flex"
+      justifyContent="center"
+      marginTop="140px"
     >
       <Container maxWidth="xs">
         <Paper elevation={3} sx={{ padding: 4 }}>
@@ -37,21 +60,21 @@ function Login() {
                 Login
               </Typography>
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField
                 label="Username"
                 variant="outlined"
                 fullWidth
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e)=>setName(e.target.value)}
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 label="Email"
-                type="email"
+                type='email'
                 variant="outlined"
                 fullWidth
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e)=>setEmail(e.target.value)}
               />
             </Grid>
 
@@ -61,7 +84,7 @@ function Login() {
                 type="password"
                 variant="outlined"
                 fullWidth
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e)=>setPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -78,6 +101,7 @@ function Login() {
         </Paper>
       </Container>
     </Box>
+    </div>
   );
 }
 

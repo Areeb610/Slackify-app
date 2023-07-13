@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import {
   Box,
@@ -17,6 +18,7 @@ function Signup() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+  const history = useHistory();
   
   // Handling form input
   const submitHandler = async ()=>{
@@ -36,7 +38,7 @@ function Signup() {
       const config ={
         headers:{
         "Content-type":"application/json"
-      },
+      }
       };
       const {data} = await axios.post(
         apiUrl,
@@ -45,15 +47,20 @@ function Signup() {
       );
       JSON.stringify(data);
       console.log(data);
-      alert('Registration successfull')
+      let message = data.message;
+      alert(message);
       
+      history.push('/login');
+
+    // error handling
     } catch (error) {
-      
+      console.log(error);
     }
 
   }
+
   return (
-    <Box minHeight="80vh" display="flex" alignItems="center" justifyContent="center">
+    <Box minHeight="80vh" display="flex" alignItems="center" justifyContent="center" >
       <Container maxWidth="xs">
         <Paper elevation={3} sx={{ padding: 4 }}>
           <Grid container spacing={2}>
@@ -63,17 +70,17 @@ function Signup() {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Name" name='name' variant="outlined" fullWidth 
+              <TextField label="Name" variant="outlined" fullWidth required
                 onChange={(e)=>setName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Email" type="email" variant="outlined" fullWidth 
+              <TextField label="Email" type="email" variant="outlined" fullWidth required
                 onChange={(e)=>setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Password" name='password' type="password" variant="outlined" fullWidth 
+              <TextField label="Password" name='password' type="password" variant="outlined" fullWidth required 
                 onChange={(e)=>setPassword(e.target.value)}
               />
             </Grid>
@@ -84,6 +91,7 @@ function Signup() {
                 type="password"
                 variant="outlined"
                 fullWidth
+                required
                 onChange={(e)=>setConfirmPassword(e.target.value)}
               />
             </Grid>

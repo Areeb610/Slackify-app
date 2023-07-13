@@ -1,7 +1,14 @@
-// import './App.css'
-// import {Route, BrowserRouter} from 'react-router-dom';
-// import Chatspage from './pages/Chatspage';
-// import Login from './pages/Login';
+import './App.css'
+import {Route, BrowserRouter} from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import Chatspage from './pages/Chatspage';
+import Login from './pages/Login';
+import NewWorkspace from './pages/NewWorkspace';
+import SideBar from './pages/SideBar';
+import Signup from './pages/Signup';
+import MainPage from './pages/MainPage';
+import Login from './components/Login';
+import Company from './pages/Company'
 
 import { Route, BrowserRouter } from "react-router-dom";
 import Homepage from "./pages/Homepage";

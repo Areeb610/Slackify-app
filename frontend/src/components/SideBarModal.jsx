@@ -225,14 +225,7 @@ const SideBarModal = () => {
   return (
     <div className="boxModel">
       
-       <Drawer
-        anchor="left"
-        open={true}
-        BackdropProps={{ invisible: true}}
-        PaperProps={{ style: { position: "absolute" } }}
-      >
-        {list}
-      </Drawer> 
+       {list}
     </div>
   );
 };
