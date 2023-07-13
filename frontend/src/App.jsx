@@ -2,8 +2,7 @@ import './App.css'
 import {Route, BrowserRouter} from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Chatspage from './pages/Chatspage';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Login from './components/Login';
 import Company from './pages/Company'
 
 function App() {

@@ -1,6 +1,5 @@
 import React from 'react'
-import Login from './Login'
-import Signup from './Signup'
+import Signup from '../components/Signup'
 import { Box, Typography} from '@mui/material';
 
 const Homepage = () => {
