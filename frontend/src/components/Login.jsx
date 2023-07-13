@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import axios from 'axios';
 import {
   Box,
   Container,
@@ -24,11 +25,32 @@ function Login() {
     console.log('click working');
   }
   return (
-    <Box
-      minHeight="100vh"
+    <div className="login">
+     <Box
+      minHeight="5vh"
       display="flex"
       alignItems="center"
       justifyContent="center"
+    >
+      <Typography fontFamily="'Inter', sans-serif;" marginTop="40px" variant="h2" align="center" color='white' >
+        Slackify
+      </Typography>
+    </Box>
+    <Box
+      minHeight="5vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Typography fontFamily="'Inter', sans-serif;" marginTop="40px" variant="h6" align="center" color='white' >
+        Continue with your login info.
+      </Typography>
+    </Box>
+    <Box
+      minHeight="100vh"
+      display="flex"
+      justifyContent="center"
+      marginTop="140px"
     >
       <Container maxWidth="xs">
         <Paper elevation={3} sx={{ padding: 4 }}>
@@ -38,14 +60,14 @@ function Login() {
                 Login
               </Typography>
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField
                 label="Username"
                 variant="outlined"
                 fullWidth
                 onChange={(e)=>setName(e.target.value)}
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 label="Email"
@@ -79,6 +101,7 @@ function Login() {
         </Paper>
       </Container>
     </Box>
+    </div>
   );
 }
 

@@ -60,7 +60,7 @@ function Signup() {
   }
 
   return (
-    <Box minHeight="80vh" display="flex" alignItems="center" justifyContent="center">
+    <Box minHeight="80vh" display="flex" alignItems="center" justifyContent="center" >
       <Container maxWidth="xs">
         <Paper elevation={3} sx={{ padding: 4 }}>
           <Grid container spacing={2}>

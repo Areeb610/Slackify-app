@@ -1,5 +1,6 @@
 import './App.css'
 import {Route, BrowserRouter} from 'react-router-dom';
+import Homepage from './pages/Homepage';
 import Chatspage from './pages/Chatspage';
 import Login from './pages/Login';
 import NewWorkspace from './pages/NewWorkspace';
