@@ -1,6 +1,13 @@
 import express from "express";
 import {registercontroller, logincontroller} from "../controller/usercontroller.js";
-import {create_workspace, my_created_workspace, people_in_workspace, remove_people} from "../controller/workspace.js";
+import {
+    create_workspace,
+    delete_workspace,
+    joined_workspace,
+    my_created_workspace,
+    people_in_workspace,
+    remove_people
+} from "../controller/workspace.js";
 import {get_invite, invite_people, accept_invite} from "../controller/invite.js";
 
 
@@ -24,5 +31,8 @@ router.get("/my_created", my_created_workspace)
 
 router.delete("/remove", remove_people)
 
+router.get("/joined", joined_workspace)
+
+router.delete("/delete_workspace", delete_workspace)
 
 export default router;

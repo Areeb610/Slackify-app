@@ -13,17 +13,15 @@ export const create_workspace = async (req, res) => {
 
         const data = await client.query(`INSERT INTO workspace (workspace_name,owner_id) VALUES ('${workspace_name}','${owner_id}')`, (err, result) => {
             if (!err) {
-                return res.status(201).send({success: true, message: "Workspace created Successfully"})
+                return res.status(201).send({success: true, message: "Workspace created Successfully", data: result})
             } else {
                 return res.status(404).send({success: false, message: "Error in Creation", err});
             }
         });
 
-
     } catch (err) {
         return res.status(500).send({success: false, message: "Error in Creation", err});
     }
-
 }
 
 export const people_in_workspace = async (req, res) => {
@@ -87,7 +85,12 @@ export const remove_people = async (req, res) => {
              AND workspace_id IN ( Select id from workspace where id = ${workspace_id} and owner_id = ${owner_id}
              )`, (err, result) => {
                 if (!err) {
-                    res.status(200).send({success: true, message: "Removed Successfully"});
+                    if (result.rowCount > 0) {
+                        res.status(200).send({success: true, message: "Removed Successfully"});
+                    }
+                    if (result.rowCount == 0) {
+                        res.status(404).send({success: false, message: "No User Found"});
+                    }
                 } else {
                     res.status(500).send({success: false, message: "Error", err});
                 }
@@ -96,5 +99,44 @@ export const remove_people = async (req, res) => {
 
     } catch (error) {
         return res.status(500).send({success: false, message: "Error 500", error})
+    }
+}
+export const joined_workspace = async (req, res) => {
+    try {
+        const {user_id} = req.body
+        if (!user_id) {
+            res.status(404).send({success: false, message: "user or not found"})
+        }
+        const workspace = await client.query(`Select workspace.workspace_name from people_in_workspace JOIN workspace on
+        people_in_workspace.workspace_id = workspace.id where people_in_workspace.added_people = ${user_id}`, (err, result) => {
+            if (!err) {
+                return res.status(200).send({success: true, data: result.rows})
+            } else {
+                return res.status(404).send({success: false, err})
+            }
+        })
+    } catch (err) {
+        return res.status(500).send({success: false, err})
+    }
+}
+
+export const delete_workspace = async (req, res) => {
+    try {
+        const {owner_id, workspace_id} = req.body
+        if (!owner_id || !workspace_id) {
+            res.send({message: "User or Workspace id Required"})
+        }
+        const workspace = await client.query(`DELETE FROM workspace where id = ${workspace_id} and owner_id = ${owner_id}`, (err, result) => {
+            if (!err) {
+                console.log(result)
+                if (result.rowCount > 0) {
+                    return res.status(200).send({success: true, message: "Workspace Deleted Successfully"})
+                }
+            } else {
+                res.status(500).send({success: false, err})
+            }
+        })
+    } catch (err) {
+        res.status(500).send({success: false, err})
     }
 }
