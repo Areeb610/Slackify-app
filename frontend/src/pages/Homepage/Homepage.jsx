@@ -1,6 +1,7 @@
 import React from 'react'
-import Signup from '../components/Signup'
+import Signup from '../../components/Signup';
 import { Box, Typography} from '@mui/material';
+import './Homepage.css'
 
 const Homepage = () => {
   return (
@@ -11,7 +12,7 @@ const Homepage = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <Typography fontFamily="Work Sans" marginTop="40px" variant="h2" align="center" color='white'>
+      <Typography fontFamily="'Inter', sans-serif" marginTop="40px" variant="h2" align="center" color='white'>
          Welcome to Slackify
       </Typography>
     </Box>
