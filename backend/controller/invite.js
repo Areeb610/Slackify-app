@@ -7,17 +7,34 @@ export const invite_people = async (req, res) => {
         if (!receiver_id || !workspace_id || !sender_id) {
             return res.send({error: "Error"})
         }
-        const invite = await client.query(`INSERT INTO invitation (workspace_id,sender_id,receiver_id,status) VALUES
-      ('${workspace_id}', '${sender_id}','${receiver_id}',false) `, (err, result) => {
-            if (!err) {
+        //     const invite = await client.query(`INSERT INTO invitation (workspace_id,sender_id,receiver_id,status) VALUES
+        // (${workspace_id}, ${sender_id},${receiver_id},false) where ${receiver_id} NOT IN (
+        //     SELECT added_people from people_in_workspace where workspace_id = ${workspace_id} and added_people = ${receiver_id})`, (err, result) => {
+        //         if (!err) {
+        //             return res.status(201).send({success: true, message: "Sent Invitation successfully"})
+        //         } else {
+        //             return res.status(404).send({success: false, message: "Error", err});
+        //         }
+        //     })
+
+        const invite = await client.query(`INSERT INTO invitation (workspace_id,sender_id,receiver_id,status) 
+       SELECT ${workspace_id}, ${sender_id},${receiver_id},false 
+       WHERE ${receiver_id}
+       NOT IN (
+            SELECT added_people from people_in_workspace where workspace_id = ${workspace_id})`, (err, result) => {
+            if (result.rowCount > 0) {
                 return res.status(201).send({success: true, message: "Sent Invitation successfully"})
+            }
+            if (result.rowCount == 0) {
+                return res.status(201).send({success: true, message: "Already In Workspace"})
             } else {
                 return res.status(404).send({success: false, message: "Error", err});
             }
         })
 
+
     } catch (err) {
-        return res.status(500).send({succes: false, message: "Error", err});
+        return res.status(500).send({succes: false, message: "Error 500", err});
     }
 }
 export const get_invite = async (req, res) => {
@@ -57,11 +74,12 @@ export const accept_invite = async (req, res) => {
 
         // console.log(status.rowCount)
         if (status.rowCount == 1) {
-            const invit = await client.query(`UPDATE invitation SET status = true
-         WHERE receiver_id = ${user_id} and workspace_id = ${workspace_id}`, (err, result) => {
+            const invit = await client.query(`DELETE FROM invitation  
+            WHERE receiver_id = ${user_id} and workspace_id = ${workspace_id}`, (err, result) => {
                 if (!err) {
                     client.query(`INSERT INTO people_in_workspace (workspace_id,added_people) VALUES ('${workspace_id}','${user_id}') `)
-                    return res.status(201).send({succes: true, message: "Accepted Invite Successfully"})
+
+                    return res.status(201).send({succes: true, message: "Accepted Invite Successfully or No Invitation Found"})
 
                 } else {
                     return res.status(404).send({succes: false, message: "Error In Accepting Invite"})

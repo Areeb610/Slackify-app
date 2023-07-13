@@ -76,16 +76,25 @@ export const my_created_workspace = async (req, res) => {
     }
 }
 
-// export const remove_people = async (req, res) => {
-//     try {
-//         const {user_id, workspace_id} = req.body
-//         if (!user_id || !workspace_id) {
-//             return res.status(404).send({success: false, message: "user or workspace not found", error})
-//         } else {
-//             const remove = await client.query(`Delet`)
-//         }
+export const remove_people = async (req, res) => {
+    try {
+        const {owner_id, user_id, workspace_id} = req.body
+        // console.log(owner_id, user_id, workspace_id)
+        if (!owner_id || !user_id || !workspace_id) {
+            return res.status(404).send({success: false, message: "user or workspace not found", error})
+        } else {
+            const remove = await client.query(`DELETE FROM people_in_workspace where added_people = ${user_id}
+             AND workspace_id IN ( Select id from workspace where id = ${workspace_id} and owner_id = ${owner_id}
+             )`, (err, result) => {
+                if (!err) {
+                    res.status(200).send({success: true, message: "Removed Successfully"});
+                } else {
+                    res.status(500).send({success: false, message: "Error", err});
+                }
+            })
+        }
 
-//     } catch (error) {
-//         return res.status(500).send({success: false, message: "Error", error})
-//     }
-// }
+    } catch (error) {
+        return res.status(500).send({success: false, message: "Error 500", error})
+    }
+}
