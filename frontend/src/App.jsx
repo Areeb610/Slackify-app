@@ -1,21 +1,10 @@
-import './App.css'
-import {Route, BrowserRouter} from 'react-router-dom';
-import Homepage from './pages/Homepage';
-import Chatspage from './pages/Chatspage';
-import Login from './pages/Login';
-import NewWorkspace from './pages/NewWorkspace';
-import SideBar from './pages/SideBar';
-import Signup from './pages/Signup';
-import MainPage from './pages/MainPage';
-import Login from './components/Login';
-import Company from './pages/Company'
-
+import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import NewWorkspace from "./pages/NewWorkspace";
 import Chatspage from "./pages/Chatspage";
-import Login from "./pages/Login";
+import Login from "./components/Login";
+import NewWorkspace from "./pages/NewWorkspace";
 import SideBar from "./pages/SideBar";
+import Signup from "./components/Signup";
 import LandingPage from "./pages/LandingPage";
 import ProfilePage from "./pages/ProfilePage";
 function App() {
