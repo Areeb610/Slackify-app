@@ -1,5 +1,6 @@
-import Signup from "./Signup";
-import { Box, Typography } from "@mui/material";
+import React from 'react'
+import Signup from '../components/Signup'
+import { Box, Typography} from '@mui/material';
 
 const Homepage = () => {
   return (

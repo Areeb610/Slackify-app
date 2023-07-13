@@ -6,6 +6,8 @@ import NewWorkspace from './pages/NewWorkspace';
 import SideBar from './pages/SideBar';
 import Signup from './pages/Signup';
 import MainPage from './pages/MainPage';
+import Login from './components/Login';
+import Company from './pages/Company'
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
       <Route path="/sidebar" component={SideBar} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+      <Route path="/workspace" component={Company} />
     </BrowserRouter>
     </div>
   )
