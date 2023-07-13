@@ -1,3 +1,37 @@
+@import url('../../node_modules/react-quill/dist/quill.snow.css');
+
+.textBox {
+  margin-bottom: -100px;
+}
+.send__btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send__btn:hover {
+  background-color: #45a049;
+}
+
+.send__btn:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.chatspage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 0px;
+}
 .chatpage__top {
   display: flex;
   height: 10vh;
@@ -75,75 +109,8 @@
   color: #6f6f6f;
 }
 
-.message-textarea__input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  resize: none;
-  font-size: 14px;
-  line-height: 1.5;
+.react-quill-container .q1-editor {
+  line-height: 20px;
 }
 
-.message-textarea__send-button {
-  margin-left: 10px;
-  padding: 8px 16px;
-  background-color: #0054a9;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
 
-.message-textarea__send-button:hover {
-  background-color: #350d36;
-}
-.message-textarea {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin-top: 50px;
-  margin-bottom: 0px;
-}
-
-.slack-message-textarea__editor {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 0px;
-}
-
-.slack-message-textarea__editor-button {
-  padding: 8px 16px;
-  margin-right: 20px;
-  background-color: #015af5;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.slack-message-textarea__input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  resize: none;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.message-textarea__send-button {
-  padding: 8px 16px;
-  background-color: #3f0e40;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.slack-message-textarea__send-button:hover {
-  background-color: #350d36;
-}
