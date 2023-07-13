@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import ListItem from "@mui/material/ListItem";  
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -21,6 +21,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+
 const SideBarModal = () => {
   const style = {
     position: "absolute",
@@ -32,19 +33,13 @@ const SideBarModal = () => {
     border: "2px solid #05317E",
     boxShadow: 24,
     p: 4,
+
   };
   const [isChannelsOpen, setIsChannelsOpen] = React.useState(false);
   const [isWorkSpaceOpen, setIsWorkSpaceOpen] = React.useState(false);
-
   const [isMessageOpen, setIsMessageOpen] = React.useState(false);
-  const [channels, setChannels] = React.useState([
-    "Channel 1",
-    "Channel 2",
-    "Channel 3",
-  ]);
-
+  const [channels, setChannels] = React.useState(["Channel 1", "Channel 2", "Channel 3"]);
   const [newChannel, setNewChannel] = React.useState("");
-
   const handleAddChannel = () => {
     if (newChannel.trim() !== "") {
       setChannels([...channels, newChannel.trim()]);
@@ -57,22 +52,15 @@ const SideBarModal = () => {
   const handleWorkSpaceToggle = () => {
     setIsWorkSpaceOpen(!isWorkSpaceOpen);
   };
-
   const handleMessageToggle = () => {
     setIsMessageOpen(!isMessageOpen);
   };
-
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const list = (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={() => {}}
-      onKeyDown={() => {}}
-    >
+    <Box sx={{ width: 250}} role="presentation" onClick={() => {}} onKeyDown={() => {}}>
       <List>
         <ListItem disablePadding>
           <ListItemButton onClick={handleWorkSpaceToggle}>
@@ -84,15 +72,13 @@ const SideBarModal = () => {
 
       <Collapse in={isWorkSpaceOpen} timeout="auto" unmountOnExit>
         <List>
-          {["Create Channel","Add workspace", "Settings", "Sign In", "Sign Out"].map(
-            (text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            )
-          )}
+          {["Create Channel", "Add workspace", "Settings", "Sign In", "Sign Out"].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Collapse>
 
@@ -100,13 +86,8 @@ const SideBarModal = () => {
         {/* channels */}
         <ListItem disablePadding>
           <ListItemButton onClick={handleChannelsToggle}>
-            <ArrowDropDownOutlinedIcon
-              style={{ color: "white", opacity: "0.6" }}
-            />
-            <ListItemText
-              primary="Channels"
-              style={{ color: "white", opacity: "0.6" }}
-            />
+            <ArrowDropDownOutlinedIcon style={{ color: "white", opacity: "0.6" }} />
+            <ListItemText primary="Channels" style={{ color: "white", opacity: "0.6" }} />
           </ListItemButton>
         </ListItem>
         <Collapse in={isChannelsOpen} timeout="auto" unmountOnExit>
@@ -115,14 +96,9 @@ const SideBarModal = () => {
               <ListItem key={channel} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    <TagOutlinedIcon
-                      style={{ color: "white", opacity: "0.6" }}
-                    />
+                    <TagOutlinedIcon style={{ color: "white", opacity: "0.6" }} />
                   </ListItemIcon>
-                  <ListItemText
-                    primary={channel}
-                    style={{ color: "white", opacity: "0.6" }}
-                  />
+                  <ListItemText primary={channel} style={{ color: "white", opacity: "0.6" }} />
                 </ListItemButton>
               </ListItem>
             ))}
@@ -197,9 +173,7 @@ const SideBarModal = () => {
         {/* direct message */}
         <ListItem disablePadding>
           <ListItemButton onClick={handleMessageToggle}>
-            <ArrowDropDownOutlinedIcon
-              style={{ color: "white", opacity: "0.6" }}
-            />
+            <ArrowDropDownOutlinedIcon style={{ color: "white", opacity: "0.6" }} />
             <ListItemText
               primary="Direct Message"
               style={{ color: "white", opacity: "0.6" }}
@@ -212,46 +186,25 @@ const SideBarModal = () => {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <Avatar
-                    alt="User 1"
-                    src={person2}
-                    sx={{ width: 50, height: 50 }}
-                  />
+                  <Avatar alt="User 1" src={person2} sx={{ width: 50, height: 50 }} />
                 </ListItemIcon>
-                <ListItemText
-                  primary="User 1"
-                  style={{ color: "white", opacity: "0.6" }}
-                />
+                <ListItemText primary="User 1" style={{ color: "white", opacity: "0.6" }} />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <Avatar
-                    alt="User 2"
-                    src={person1}
-                    sx={{ width: 50, height: 50 }}
-                  />
+                  <Avatar alt="User 2" src={person1} sx={{ width: 50, height: 50 }} />
                 </ListItemIcon>
-                <ListItemText
-                  primary="User 2"
-                  style={{ color: "white", opacity: "0.6" }}
-                />
+                <ListItemText primary="User 2" style={{ color: "white", opacity: "0.6" }} />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <Avatar
-                    alt="Remy Sharp"
-                    src={person3}
-                    sx={{ width: 50, height: 50 }}
-                  />
+                  <Avatar alt="Remy Sharp" src={person3} sx={{ width: 50, height: 50 }} />
                 </ListItemIcon>
-                <ListItemText
-                  primary="User 3"
-                  style={{ color: "white", opacity: "0.6" }}
-                />
+                <ListItemText primary="User 3" style={{ color: "white", opacity: "0.6" }} />
               </ListItemButton>
             </ListItem>
           </List>
@@ -260,9 +213,8 @@ const SideBarModal = () => {
       <List>
         <ListItemButton>
           <ListItemText primary="New Message" style={{ color: "white" }} />
-
           <ListItemIcon>
-            {/* naviagtes to new message */}
+            {/* navigates to new message */}
             <img src={GroupIcon} alt="GroupIcon" />
           </ListItemIcon>
         </ListItemButton>
@@ -271,10 +223,16 @@ const SideBarModal = () => {
   );
 
   return (
-    <div>
-      <Drawer anchor="left" open={true} onClose={() => {}}>
+    <div className="boxModel">
+      
+       <Drawer
+        anchor="left"
+        open={true}
+        BackdropProps={{ invisible: true}}
+        PaperProps={{ style: { position: "absolute" } }}
+      >
         {list}
-      </Drawer>
+      </Drawer> 
     </div>
   );
 };

@@ -1,0 +1,10 @@
+.mainpage {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    display: absolute;
+    flex : 0 0 250px;
+
+}
