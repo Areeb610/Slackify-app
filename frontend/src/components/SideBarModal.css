@@ -41,6 +41,6 @@
         left: 0;
     }
     .box-modal{
-        border-left: 1px solid #FFFFFF;
-        margin-left: 20px;
+
+        background-color: #053173 !important;
     }
