@@ -1,0 +1,21 @@
+.mainpage {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    display: absolute;
+    flex : 0 0 250px;
+    background-color: #053173 !important;
+    margin-top: -10px !important;
+    margin-left: -10px !important;
+
+}
+.sidebar-closed {
+    width: 0;
+  }
+  
+  .chatspage-full-width {
+    margin-left: 0;
+  }
+  
