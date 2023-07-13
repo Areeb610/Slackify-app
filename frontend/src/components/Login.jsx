@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import './Login.css'
 import {
   Box,
   Container,
@@ -11,45 +10,19 @@ import {
   TextField,
   Button,
 } from '@mui/material';
-import { useHistory } from 'react-router-dom';
 
 function Login() {
+  const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const history = useHistory();
 
-  const submitHandler = async ()=>{
+  const submitHandler = ()=>{
     // checking null fields
-    if(!email || !password){
+    if(!name || !email || !password){
       alert('Please fill all fields');
       return;
     }
-    // calling api
-      try {
-        const apiUrl='http://localhost:5000/api/user/login'
-        const config ={
-          headers:{
-          "Content-type":"application/json"
-        }
-        };
-        const {data} = await axios.post(
-          apiUrl,
-          {email,password},
-          config
-        );
-        JSON.stringify(data);
-        console.log(data);
-        let message = data.message;
-        let successStatus = data.success;
-        if(successStatus){
-          history.push('/workspace')
-        }
-        console.log(message);
-      // error handling 
-      } catch (error) {
-        console.log(error); 
-      }
-    
+    console.log('click working');
   }
   return (
     <div className="login">
@@ -87,6 +60,14 @@ function Login() {
                 Login
               </Typography>
             </Grid>
+            {/* <Grid item xs={12}>
+              <TextField
+                label="Username"
+                variant="outlined"
+                fullWidth
+                onChange={(e)=>setName(e.target.value)}
+              />
+            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 label="Email"
