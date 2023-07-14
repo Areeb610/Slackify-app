@@ -12,11 +12,9 @@ function App() {
       <BrowserRouter>
         <Route path="/" component={Homepage} exact />
         <Route path="/landingpage" component={LandingPage} />
-        <Route path="/chats" component={Chatspage} />
-        <Route path="/sidebar" component={SideBar} />
         <Route path="/login" component={Login} />
         <Route path="/mainpage" component={MainPage} />
-        <Route path= "/profilepage" component={ProfilePage} />
+        <Route path="/profilepage" component={ProfilePage} />
       </BrowserRouter>
     </div>
   );
