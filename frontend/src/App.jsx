@@ -3,7 +3,6 @@ import Homepage from "./pages/Homepage/Homepage";
 import Chatspage from "./pages/Chatspage/Chatspage";
 import Login from "./pages/Login/Login";
 import SideBar from "./components/SideBar";
-import Signup from "./pages/SignUp/Signup";
 import MainPage from "./pages/MainPage/MainPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
@@ -16,7 +15,6 @@ function App() {
         <Route path="/chats" component={Chatspage} />
         <Route path="/sidebar" component={SideBar} />
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
         <Route path="/mainpage" component={MainPage} />
         <Route path= "/profilepage" component={ProfilePage} />
       </BrowserRouter>
