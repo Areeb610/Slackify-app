@@ -1,5 +1,5 @@
 import SideBar from "./SideBar";
-import Chatspage from "./Chatspage";
+import Chatspage from "./Chatspage/Chatspage";
 import "./MainPage.css"
 const MainPage = () => {
     return (

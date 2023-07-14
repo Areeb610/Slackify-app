@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import './Login.css';
+import '../pages/NewWorkspace';
 import {
   Box,
   Container,
@@ -10,19 +12,40 @@ import {
   TextField,
   Button,
 } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
-  const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const history = useHistory();
 
-  const submitHandler = ()=>{
+  const submitHandler = async ()=>{
     // checking null fields
-    if(!name || !email || !password){
+    if(!email || !password){
       alert('Please fill all fields');
       return;
     }
-    console.log('click working');
+    try {
+      const apiUrl = "http://localhost:5000/api/user/login";
+      const config ={
+        headers:{
+        "Content-type":"application/json"
+      }
+      };
+      const {data} = await axios.post(
+        apiUrl,
+        { email, password },
+        config
+      );
+      JSON.stringify(data);
+      let succesStatus = data.success;
+      if(succesStatus){
+        history.push('/workspace');
+      }
+      
+    } catch (error) {
+      
+    }
   }
   return (
     <div className="login">
@@ -60,14 +83,6 @@ function Login() {
                 Login
               </Typography>
             </Grid>
-            {/* <Grid item xs={12}>
-              <TextField
-                label="Username"
-                variant="outlined"
-                fullWidth
-                onChange={(e)=>setName(e.target.value)}
-              />
-            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 label="Email"
