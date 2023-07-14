@@ -1,6 +1,6 @@
-import SideBar from "./SideBar";
-import Chatspage from "./Chatspage";
-import "./MainPage.css"
+import SideBar from "../../components/SideBar";
+import Chatspage from "../Chatspage/Chatspage";
+import "../MainPage/MainPage.css"
 const MainPage = () => {
     return (
         <div className="mainpage">
