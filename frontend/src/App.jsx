@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route path="/" component={NewWorkspace} exact />
+        <Route path="/" component={LandingPage} exact />
         <Route path="/chats" component={Chatspage} />
         <Route path="/login" component={Login} />
         <Route path="/sidebar" component={SideBar} />

@@ -45,7 +45,7 @@ const LandingPage = () => {
           </div>
           <div className="d-flex justify-content-between">
             <h6>Workspace 1</h6>
-
+          
             <Button variant="warning">Launch</Button>
           </div>
         </div>
