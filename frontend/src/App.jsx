@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
 import Chatspage from "./pages/Chatspage";
 import Login from "./components/Login";
-import NewWorkspace from "./pages/NewWorkspace";
+import Homepage from "./pages/Homepage/Homepage";
 import SideBar from "./pages/SideBar";
 import Signup from "./components/Signup";
 import LandingPage from "./pages/LandingPage";
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route path="/" component={NewWorkspace} exact />
+        <Route path="/" component={Homepage} exact />
         <Route path="/chats" component={Chatspage} />
         <Route path="/login" component={Login} />
         <Route path="/sidebar" component={SideBar} />
