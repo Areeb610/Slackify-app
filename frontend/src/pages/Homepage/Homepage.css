@@ -1,0 +1,6 @@
+.home{
+    background-image: url('../../assets/sign_up_bg.png');
+    background-repeat: no-repeat;
+    background-color: #05317e;
+    min-height: 100vh;
+}
