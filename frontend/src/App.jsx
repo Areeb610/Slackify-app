@@ -11,7 +11,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route path="/" component={LandingPage} exact />
+        <Route path="/" component={Homepage} exact />
+        <Route path="/landingpage" component={LandingPage} />
         <Route path="/chats" component={Chatspage} />
         <Route path="/sidebar" component={SideBar} />
         <Route path="/login" component={Login} />
