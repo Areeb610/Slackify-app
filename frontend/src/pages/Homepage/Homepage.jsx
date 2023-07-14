@@ -1,6 +1,6 @@
-import React from 'react'
-import Signup from '../components/Signup'
-import { Box, Typography} from '@mui/material';
+import Signup from "../../components/Signup";
+import { Box, Typography } from "@mui/material";
+import "./Homepage.css";
 
 const Homepage = () => {
   return (
@@ -12,7 +12,7 @@ const Homepage = () => {
         justifyContent="center"
       >
         <Typography
-          fontFamily="Work Sans"
+          fontFamily="'Inter', sans-serif"
           marginTop="40px"
           variant="h2"
           align="center"
