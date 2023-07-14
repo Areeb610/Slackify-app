@@ -30,7 +30,7 @@ const ProfilePage = () => {
       </Container>
   
             <div className="d-flex justify-content-end">
-              <Link to="/chats">
+              <Link to="/">
                 <Button variant="dark" className="button-dark mt-5">
                   Next
                 </Button>
