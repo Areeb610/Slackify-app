@@ -39,8 +39,12 @@ function Login() {
       );
       JSON.stringify(data);
       let succesStatus = data.success;
+      let message = data.message;
       if(succesStatus){
         history.push('/workspace');
+      }
+      else{
+        console.log(message);
       }
       
     } catch (error) {
