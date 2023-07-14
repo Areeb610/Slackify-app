@@ -10,6 +10,8 @@ import {
 } from "../controller/workspace.js";
 import {get_invite, invite_people, accept_invite} from "../controller/invite.js";
 
+import {create_channel} from "../controller/channel.js"
+
 
 const router = express.Router();
 
@@ -34,5 +36,7 @@ router.delete("/remove", remove_people)
 router.get("/joined", joined_workspace)
 
 router.delete("/delete_workspace", delete_workspace)
+
+router.post("/create_channel", create_channel)
 
 export default router;

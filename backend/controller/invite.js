@@ -29,7 +29,7 @@ export const invite_people = async (req, res) => {
                             return res.status(200).send({success: true, message: "Already In Workspace"})
                         }
                     } else {
-                        return res.status(200).send({success: false, err});
+                        return res.status(500).send({success: false, err});
                     }
                 })
             }

@@ -22,7 +22,24 @@ await client.connect((err) => {
     console.log("PostgreSql is connected");
 });
 
-// const user = await client.query('CREATE TABLE invitation (workspace_id INT REFERENCES workspace(id) NOT NULL , sender_id INT REFERENCES person (id) NOT NULL , receiver_id INT REFERENCES person (id) NOT NULL , status BOOLEAN NOT NULL , PRIMARY KEY (workspace_id, receiver_id) )', (err, result) => {
+// const user = await client.query('CREATE TABLE channel_invitation (channel_id INT REFERENCES channel(id) ON DELETE CASCADE, workspace_id INT REFERENCES workspace(id) ON DELETE CASCADE , user_id INT, FOREIGN KEY (user_id, workspace_id) REFERENCES people_in_workspace(added_people, workspace_id) ON DELETE CASCADE ) ', (err, result) => {
+//     if (!err) {
+//         console.log(result);
+//     } else {
+//         console.log(err)
+//     }
+// });
+
+// const user = await client.query('CREATE TABLE people_in_channel (channel_id INT REFERENCES channel(id) ON DELETE CASCADE,workspace_id INT REFERENCES workspace(id),added_people INT, FOREIGN KEY (added_people, workspace_id) REFERENCES people_in_workspace(added_people, workspace_id) ON DELETE CASCADE ) ', (err, result) => {
+//     if (!err) {
+//         console.log(result);
+//     } else {
+//         console.log(err)
+//     }
+// });
+
+
+// const user = await client.query('CREATE TABLE CHANNEL (id SERIAL PRIMARY KEY, channel_name VARCHAR(255), workspace_id INT REFERENCES workspace(id) ON DELETE CASCADE , owner_id INT, FOREIGN KEY (owner_id, workspace_id) REFERENCES people_in_workspace(added_people, workspace_id) ON DELETE CASCADE) ', (err, result) => {
 //     if (!err) {
 //         console.log(result);
 //     } else {
