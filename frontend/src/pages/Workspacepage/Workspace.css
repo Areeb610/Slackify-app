@@ -1,0 +1,23 @@
+
+.landingPage{
+    background-color: #FFD710 ;
+    min-height: 100vh;
+    min-height: 100vw;
+
+}
+.slackify{
+    text-align: center;
+}
+.workspace{
+    font-size: 60px;
+    width:500px;
+}
+.team{
+    font-size: 36px;
+}
+.create-btn{
+    width: 100%;
+    background-color: #7683F9 !important;
+    border: none !important;
+    border-radius: 30px !important;
+}
