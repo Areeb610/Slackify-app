@@ -41,12 +41,9 @@ function Login() {
       let succesStatus = data.success;
       let message = data.message;
       if(succesStatus){
+        localStorage.setItem("userInfo",JSON.stringify(data))
         history.push('/workspace');
       }
-      else{
-        console.log(message);
-      }
-      
     } catch (error) {
       
     }
