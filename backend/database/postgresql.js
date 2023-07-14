@@ -4,8 +4,8 @@ const Client = pg.Client;
 const client = new Client({
     user: "postgres",
     host: "localhost",
-    database: "new_database",
-    password: "admin",
+    database: "postgres",
+    password: "areeb@610",
     port: "5432"
 })
 

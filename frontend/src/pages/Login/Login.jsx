@@ -39,7 +39,9 @@ function Login() {
       } else {
         console.log(message);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="login">
