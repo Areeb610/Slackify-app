@@ -6,9 +6,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import photo from "./../assets/profile.png";
-import coworker from "./../assets/coworker.png";
-import work from "./../assets/work.png";
+import work from "../../assets/work.png";
 
 const ProfilePage = () => {
   return (

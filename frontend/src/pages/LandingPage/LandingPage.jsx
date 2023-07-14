@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-import landing from "./../assets/landing.png";
+import landing from "../../assets/landing.png";
 import "./landing.css";
 import { Link } from "react-router-dom";
 
