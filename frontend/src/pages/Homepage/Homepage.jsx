@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import Signup from '../../components/Signup';
+import Signup from '../../pages/Signup/Signup';
 import { Box, Typography} from '@mui/material';
 import './Homepage.css'
 import { useHistory } from 'react-router-dom';
