@@ -1,7 +1,6 @@
 import { Route, BrowserRouter } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import Login from "./pages/Login/Login";
-import SideBar from "./components/SideBar";
 import MainPage from "./pages/MainPage/MainPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
