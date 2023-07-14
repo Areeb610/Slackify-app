@@ -1,10 +1,10 @@
 import { Route, BrowserRouter } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import Chatspage from "./pages/Chatspage/Chatspage";
-import Login from "./components/Login";
-import SideBar from "./pages/SideBar";
-import Signup from "./components/Signup";
-import MainPage from "./pages/MainPage";
+import Login from "./pages/Login/Login";
+import SideBar from "./components/SideBar";
+import Signup from "./pages/SignUp/Signup";
+import MainPage from "./pages/MainPage/MainPage";
 
 function App() {
   return (

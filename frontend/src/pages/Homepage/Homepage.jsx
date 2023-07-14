@@ -1,4 +1,4 @@
-import Signup from "../../components/Signup";
+import Signup from "../SignUp/Signup";
 import { Box, Typography } from "@mui/material";
 import "./Homepage.css";
 
