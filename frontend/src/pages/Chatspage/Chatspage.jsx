@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CircleIcon from "@mui/icons-material/Circle";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -6,50 +6,38 @@ import InfoIcon from "@mui/icons-material/Info";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import axios from "axios";
+// import axios from "axios";
 import "../Chatspage/Chatspage.css";
 
 const Chatspage = () => {
   const [editorContent, setEditorContent] = useState("");
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    fetchMessages();
-  }, []);
+  // const fetchMessages = async () => {
+  //   const sender = 'YourName'; // Replace with the appropriate sender name
+  //   const recipient = 'OtherPerson'; // Replace with the appropriate recipient name
 
-  const fetchMessages = async () => {
-    const sender = 'YourName'; // Replace with the appropriate sender name
-    const recipient = 'OtherPerson'; // Replace with the appropriate recipient name
-
-    try {
-      const response = await axios.get(`/messages/${sender}/${recipient}`); // Adjust the endpoint URL as per your backend configuration
-      setMessages(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //   try {
+  //     const response = await axios.get(`/messages/${sender}/${recipient}`); // Adjust the endpoint URL as per your backend configuration
+  //     setMessages(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handleEditorChange = (content) => {
     setEditorContent(content);
   };
 
-  const handleSend = async () => {
+  const handleSend = () => {
     if (editorContent.trim() !== "") {
-      const sender = 'YourName'; // Replace with the appropriate sender name
-      const recipient = 'OtherPerson'; // Replace with the appropriate recipient name
-
       const newMessage = {
-        sender,
-        recipient,
+        sender: 'YourName', // Replace with the appropriate sender name
+        recipient: 'OtherPerson', // Replace with the appropriate recipient name
         content: editorContent.trim(),
       };
-      try {
-        await axios.post("/messages", newMessage); // Adjust the endpoint URL as per your backend configuration
-        setEditorContent("");
-        fetchMessages(); // Fetch messages again after sending a new message
-      } catch (error) {
-        console.error(error);
-      }
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+      setEditorContent("");
     }
   };
 
@@ -76,16 +64,13 @@ const Chatspage = () => {
           <div className="right__hr"></div>
         </div>
         <div className="chat">
-          {messages.map((message) => (
-            <div key={message.id} className="message">
+          {messages.map((message, index) => (
+            <div key={index} className="message">
               <div className="sender">
                 {message.sender}&nbsp;
                 <span>{message.timestamp}</span>
               </div>
-              <div
-                className="msg"
-                dangerouslySetInnerHTML={{ __html: message.content }}
-              ></div>
+              <div className="msg" dangerouslySetInnerHTML={{ __html: message.content }}></div>
             </div>
           ))}
         </div>
